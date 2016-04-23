@@ -8,24 +8,24 @@ def index_page():
 
     return render_template("index.html")
 
-@app.route('/applicationform')
+@app.route('/application-form')
 def app_form():
     """Shows application form"""
 
-    return render_template("applicationform.html")
+    return render_template("application-form.html")
 
-@app.route('/application')
+@app.route('/application', methods=["POST"])
 def app_response():
     """Returns response that acknowledges application"""
 
-    first_name = request.args.get("firstname")
-    last_name = request.args.get("lastname")
-    salary = request.args.get("salary")
-    title = request.args.get("jobtitle")
+    firstname = request.form.get("firstname")
+    lastname = request.form.get("lastname")
+    salary = request.form.get("salary")
+    title = request.form.get("title")
 
     return render_template("applicationresponse.html",
-                            firstname=first_name,
-                            lastname=last_name,
+                            firstname=firstname,
+                            lastname=lastname,
                             salary=salary,
                             title=title
                             )

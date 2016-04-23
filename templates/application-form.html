@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Application Form{% endblock %}
+
+{% block content %}
+
+    <h1>Application Form</h1>
+    <h3 class="instructions">Please fill out the application below.</h3>
+
+    <form action='/application' method="POST"> 
+
+    	<label for="firstname">First Name: 
+    	   <input type="text" name="firstname">
+        </label><br>
+    	<label for="lastname">Last Name: 
+            <input type="text" name="lastname">
+        </label><br>
+        <label for="salary">Salary Requirement: 
+            <input type="text" name="salary">
+        </label><br>
+        <label for="jobtitle">Job Title: 
+            <label><input type="radio" name="title" value="Software Engineer">Software Engineer</label>
+            <label><input type="radio" name="title" value="QA Engineer">QA Engineer</label>
+            <label><input type="radio" name="title" value="Product Manager">Product Manager</label>
+        </label><br>
+        <input type="submit" name="submit" value="Submit Application">
+
+{% endblock %}
